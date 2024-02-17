@@ -75,7 +75,7 @@ TextureImporter:
       213: -4456150263817581094
     second: _sprites_monsters_big_23
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -92,11 +92,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -135,6 +136,8 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -146,6 +149,7 @@ TextureImporter:
     crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -158,6 +162,7 @@ TextureImporter:
     crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -170,6 +175,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -182,6 +188,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -194,6 +201,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -206,6 +214,20 @@ TextureImporter:
     crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -726,33 +748,32 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      _sprites_monsters_big_9: 2981245926815174082
+      _sprites_monsters_big_0: -6981412043874262857
+      _sprites_monsters_big_1: 2824999699610686360
+      _sprites_monsters_big_10: 1541303899142432923
+      _sprites_monsters_big_11: -290610999198447268
+      _sprites_monsters_big_12: 8440282959476798100
+      _sprites_monsters_big_13: 6561014284067672558
+      _sprites_monsters_big_14: 3352298603415609706
+      _sprites_monsters_big_15: 4735010759476044737
+      _sprites_monsters_big_16: 6235409293017765775
+      _sprites_monsters_big_17: -5449689847972020195
+      _sprites_monsters_big_18: -729986979598510903
+      _sprites_monsters_big_19: -4732100278437033992
       _sprites_monsters_big_2: -3134890353204166767
+      _sprites_monsters_big_20: 1285748949996702809
+      _sprites_monsters_big_21: -2368568031021923055
+      _sprites_monsters_big_22: 4215648831489398938
+      _sprites_monsters_big_23: -4456150263817581094
+      _sprites_monsters_big_3: -9032992392372967023
+      _sprites_monsters_big_4: -7818894644314249467
       _sprites_monsters_big_5: -6943890195690130451
       _sprites_monsters_big_6: -1199749804520573516
-      _sprites_monsters_big_15: 4735010759476044737
-      _sprites_monsters_big_3: -9032992392372967023
-      _sprites_monsters_big_17: -5449689847972020195
-      _sprites_monsters_big_19: -4732100278437033992
-      _sprites_monsters_big_1: 2824999699610686360
       _sprites_monsters_big_7: 1041103429898336348
-      _sprites_monsters_big_13: 6561014284067672558
       _sprites_monsters_big_8: -486309668871112138
-      _sprites_monsters_big_4: -7818894644314249467
-      _sprites_monsters_big_22: 4215648831489398938
-      _sprites_monsters_big_12: 8440282959476798100
-      _sprites_monsters_big_18: -729986979598510903
-      _sprites_monsters_big_23: -4456150263817581094
-      _sprites_monsters_big_16: 6235409293017765775
-      _sprites_monsters_big_10: 1541303899142432923
-      _sprites_monsters_big_0: -6981412043874262857
-      _sprites_monsters_big_21: -2368568031021923055
-      _sprites_monsters_big_11: -290610999198447268
-      _sprites_monsters_big_14: 3352298603415609706
-      _sprites_monsters_big_20: 1285748949996702809
-  spritePackingTag: 
+      _sprites_monsters_big_9: 2981245926815174082
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

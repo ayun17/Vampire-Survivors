@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public UnityEvent<float> OnSpeedChanged;
+    public UnityEvent<float> onSpeedChanged;
 
     [SerializeField] private float maxSpeed = 7f;
     [SerializeField] private float accel = 50f, deAccel = 50f;
@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        OnSpeedChanged?.Invoke(_currentSpeed);
+        onSpeedChanged?.Invoke(_currentSpeed);
         _rigid.velocity = _moveDirection * _currentSpeed;
     }
 

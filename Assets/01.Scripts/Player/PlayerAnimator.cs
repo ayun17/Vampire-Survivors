@@ -7,7 +7,7 @@ public class PlayerAnimator : MonoBehaviour
 {
     private Animator _animator;
 
-    private void Start()
+    private void Awake()
     {
         _animator = GetComponent<Animator>();
     }
@@ -20,6 +20,16 @@ public class PlayerAnimator : MonoBehaviour
     public void SetWalkAnimation(bool value)
     {
         _animator.SetBool("Walk", value);
+    }
+
+    public void HitAnimation()
+    {
+        _animator.SetTrigger("Hit");
+    }
+
+    public void DeadAnimation()
+    {
+        _animator.SetTrigger("Dead");
     }
 
     public void StopAnimation()
