@@ -52,7 +52,8 @@ public class NormalEnemy : MonoBehaviour, IDamageable
     public void OnDamage(int damage)
     {
         currentHp -= damage;
-        _stateMachine.ChangeState<NormalEnemyHit>();
+        Debug.Log($"나 적인데 {damage}만큼 피해 입어써");
+        //_stateMachine.ChangeState<NormalEnemyHit>();
     }
 
     public bool TargetInRange() // 타겟이 공격 범위 안에 있는지

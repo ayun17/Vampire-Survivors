@@ -66,7 +66,7 @@ TextureImporter:
       213: -2604378449648327165
     second: _sprites_melee_weapons_20
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -83,11 +83,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -126,6 +127,8 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -137,6 +140,7 @@ TextureImporter:
     crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -149,6 +153,7 @@ TextureImporter:
     crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -161,6 +166,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -173,6 +179,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -185,6 +192,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -197,6 +205,20 @@ TextureImporter:
     crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -211,7 +233,7 @@ TextureImporter:
         width: 6
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -232,7 +254,7 @@ TextureImporter:
         width: 10
         height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -252,8 +274,8 @@ TextureImporter:
         y: 161
         width: 10
         height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -274,7 +296,7 @@ TextureImporter:
         width: 10
         height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -295,7 +317,7 @@ TextureImporter:
         width: 10
         height: 37
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -316,7 +338,7 @@ TextureImporter:
         width: 10
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -337,7 +359,7 @@ TextureImporter:
         width: 10
         height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -358,7 +380,7 @@ TextureImporter:
         width: 10
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -379,7 +401,7 @@ TextureImporter:
         width: 6
         height: 29
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -400,7 +422,7 @@ TextureImporter:
         width: 10
         height: 25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -421,7 +443,7 @@ TextureImporter:
         width: 12
         height: 30
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -442,7 +464,7 @@ TextureImporter:
         width: 9
         height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -463,7 +485,7 @@ TextureImporter:
         width: 5
         height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -484,7 +506,7 @@ TextureImporter:
         width: 8
         height: 19
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -505,7 +527,7 @@ TextureImporter:
         width: 9
         height: 30
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -526,7 +548,7 @@ TextureImporter:
         width: 10
         height: 29
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -547,7 +569,7 @@ TextureImporter:
         width: 10
         height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -568,7 +590,7 @@ TextureImporter:
         width: 10
         height: 30
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -589,7 +611,7 @@ TextureImporter:
         width: 8
         height: 30
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -610,7 +632,7 @@ TextureImporter:
         width: 8
         height: 30
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -631,7 +653,7 @@ TextureImporter:
         width: 6
         height: 30
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -654,30 +676,29 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      _sprites_melee_weapons_6: 4790044796839068890
-      _sprites_melee_weapons_13: -8888456197520120734
-      _sprites_melee_weapons_1: 3711637644024434224
-      _sprites_melee_weapons_15: -8491222336511085509
-      _sprites_melee_weapons_20: -2604378449648327165
       _sprites_melee_weapons_0: -1949118151123902214
-      _sprites_melee_weapons_11: 3423540028061366507
-      _sprites_melee_weapons_19: -8370283274568261479
-      _sprites_melee_weapons_18: 5567617834280081534
-      _sprites_melee_weapons_12: -676015613372804901
-      _sprites_melee_weapons_14: -3235422297231812888
-      _sprites_melee_weapons_17: 2977654476207576794
-      _sprites_melee_weapons_4: 4654193933628500797
-      _sprites_melee_weapons_16: -5143735060634138432
-      _sprites_melee_weapons_2: 1705768306203154712
-      _sprites_melee_weapons_5: 2035668255479547658
-      _sprites_melee_weapons_7: 5029690672129104168
+      _sprites_melee_weapons_1: 3711637644024434224
       _sprites_melee_weapons_10: -8187317486123485221
+      _sprites_melee_weapons_11: 3423540028061366507
+      _sprites_melee_weapons_12: -676015613372804901
+      _sprites_melee_weapons_13: -8888456197520120734
+      _sprites_melee_weapons_14: -3235422297231812888
+      _sprites_melee_weapons_15: -8491222336511085509
+      _sprites_melee_weapons_16: -5143735060634138432
+      _sprites_melee_weapons_17: 2977654476207576794
+      _sprites_melee_weapons_18: 5567617834280081534
+      _sprites_melee_weapons_19: -8370283274568261479
+      _sprites_melee_weapons_2: 1705768306203154712
+      _sprites_melee_weapons_20: -2604378449648327165
+      _sprites_melee_weapons_3: 1972671395934027867
+      _sprites_melee_weapons_4: 4654193933628500797
+      _sprites_melee_weapons_5: 2035668255479547658
+      _sprites_melee_weapons_6: 4790044796839068890
+      _sprites_melee_weapons_7: 5029690672129104168
       _sprites_melee_weapons_8: 8960695750413644764
       _sprites_melee_weapons_9: -3111031514113982298
-      _sprites_melee_weapons_3: 1972671395934027867
-  spritePackingTag: 
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
