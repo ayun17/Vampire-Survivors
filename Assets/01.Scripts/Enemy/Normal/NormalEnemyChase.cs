@@ -6,11 +6,12 @@ public class NormalEnemyChase : State<NormalEnemy>
     {
         base.Enter();
         _stateMachineController.speed = _stateMachineController.enemyData.maxSpeed;
-        Debug.Log("¦i¾Æ°¡ÀÚ");
     }
 
     public override void OnUpdate()
     {
+        base.OnUpdate();
+
         _stateMachineController.moveDir = (_stateMachineController.target.position - _stateMachineController.transform.position).normalized;
 
         _stateMachineController.isFaceDirection?.Invoke(_stateMachineController.target.position);

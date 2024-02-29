@@ -4,18 +4,19 @@ using UnityEngine.Events;
 public class PlayerInput : MonoBehaviour
 {
     public UnityEvent<Vector2> onMovementKeyPressed = null;
-    //public UnityEvent<Vector2> onFirePressed = null;
 
-    private Camera _mainCam;
-    void Start()
+    private PlayerHealth _playerHealth;
+
+    private void Awake()
     {
-        _mainCam = Camera.main;
+        _playerHealth = gameObject.GetComponent<PlayerHealth>();
     }
 
     private void Update()
     {
+        if (_playerHealth.IsDead) return;
+
         GetMovementInput();
-        //FireInput();
     }
 
     private void GetMovementInput()

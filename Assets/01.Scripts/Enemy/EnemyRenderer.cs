@@ -20,4 +20,11 @@ public class EnemyRenderer : MonoBehaviour
 
         _sprite.flipX = result.z > 0;
     }
+
+    public void SelfMovementFaceDirection(Vector2 vector)
+    {
+        Vector3 result = Vector3.Cross(transform.up, vector);
+
+        _sprite.flipX = result.z > 0;
+    }
 }

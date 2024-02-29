@@ -5,7 +5,7 @@ public class NormalEnemyAttack : State<NormalEnemy>
 {
 
     private float _range = 0.5f; // 공격 사거리
-    private float _damage = 1;
+    private int _damage = 1;
 
     private float _collTime = 1f;
     private float _lastAttackTime;
@@ -20,6 +20,8 @@ public class NormalEnemyAttack : State<NormalEnemy>
 
     public override void OnUpdate()
     {
+        base.OnUpdate();
+
         Attack();
 
         if (!_stateMachineController.TargetInRange())
@@ -35,9 +37,10 @@ public class NormalEnemyAttack : State<NormalEnemy>
 
         if (hit.collider != null)
         {
-            Debug.Log($"{_damage}만큼 공격");
+            _stateMachineController.playerHealth.OnDamage(_damage); // 플레이어한태 데미지
             _stateMachineController.onAttackSuccess?.Invoke();
         }
+
         _lastAttackTime = Time.time;
     }
 }

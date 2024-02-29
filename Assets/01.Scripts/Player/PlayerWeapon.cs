@@ -15,6 +15,7 @@ public class PlayerWeapon : MonoBehaviour
 
     private Vector2 _targetDir;
     private Vector2 _targetPos;
+
     private IDamageable _iDamageable;
     private Weapon _currentWeapon;
 
@@ -59,7 +60,6 @@ public class PlayerWeapon : MonoBehaviour
     {
         AimWeapon();
         _currentWeapon.UseWeapon(_targetPos);
-        Debug.Log("Ä®·Î °ø°Ý");
     }
 
     public void GiveDamage()

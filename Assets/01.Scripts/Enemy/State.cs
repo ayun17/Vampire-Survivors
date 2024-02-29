@@ -7,7 +7,7 @@ public abstract class State<T>
 
     public virtual void OnAwake() { }
     public virtual void Enter() { }
-    public abstract void OnUpdate();
+    public virtual void OnUpdate() { }
     public virtual void Exit() { }
 
     public void SetMachineWithController(StateMachine<T> stateMachine, T stateMachineController)

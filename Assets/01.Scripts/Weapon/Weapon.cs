@@ -7,7 +7,7 @@ public class Weapon : MonoBehaviour
 {
     public UnityEvent onAttack;
 
-    [SerializeField] private float weaponDelay = 1f, attackTime = 0.3f, moveSpeed = 5f;
+    [SerializeField] private float weaponDelay = 1f, attackTime = 0.2f;
     [SerializeField] private Vector2 originPosition;
 
     public int weaponDamage = 1;
