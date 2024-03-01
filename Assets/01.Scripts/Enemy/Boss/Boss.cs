@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class DashShooterEnemy : MonoBehaviour, IDamageable
+public class Boss : MonoBehaviour, IDamageable
 {
     public UnityEvent<Vector2> isFaceDirection = null;
     public UnityEvent<float> onSpeedChanged = null;
@@ -11,13 +11,11 @@ public class DashShooterEnemy : MonoBehaviour, IDamageable
     public UnityEvent onHit = null;
     public UnityEvent onDead = null;
 
-    [SerializeField] private GameObject bulletPrefab;
     public EnemyDataSO enemyData;
+    public GameObject bulletPrefab;
 
-    private int _damage = 1;
     public float speed;
-    private float _dashTime = 0.4f;
-    private float _range = 0.5f; // 공격 사거리
+    private int _damage = 1;
     private float _collTime = 0.5f;
     private float _lastAttackTime;
 
@@ -25,19 +23,14 @@ public class DashShooterEnemy : MonoBehaviour, IDamageable
     public int CurrentHp => currentHp;
 
     public bool IsAlive { get; private set; }
-    public bool IsAttack = false;
 
-    public Vector2 moveDir;
+    public Vector2 moveDir = Vector2.zero;
     public LayerMask _player;
     public Transform target;
     public Rigidbody2D rigid;
     public PlayerHealth playerHealth;
 
-    private StateMachine<DashShooterEnemy> _stateMachine;
-
-    // Attack 관련
-    public float attackCoolTime = 3.5f;
-    public float currentAttackTime = 0;
+    private StateMachine<Boss> _stateMachine;
 
     #region 넉백
     private bool _isKnockBack = false;
@@ -54,12 +47,12 @@ public class DashShooterEnemy : MonoBehaviour, IDamageable
 
     private void Start()
     {
-        _stateMachine = new StateMachine<DashShooterEnemy>(this, new DashShooterEnemyWait());
-        _stateMachine.AddStateList(new DashShooterEnemyAttack());
-        _stateMachine.AddStateList(new DashShooterEnemyHit());
+        //_stateMachine = new StateMachine<Boss>(this, new BulletEnemyMovement());
+        //_stateMachine.AddStateList(new BulletEnemyHit());
 
         IsAlive = true;
         currentHp = enemyData.maxHP;
+        speed = enemyData.maxSpeed;
         target = playerHealth.transform;
     }
 
@@ -93,58 +86,15 @@ public class DashShooterEnemy : MonoBehaviour, IDamageable
         {
             IsAlive = false;
             onDead?.Invoke();
+            moveDir = Vector2.zero;
             Destroy(gameObject, 1f);
         }
         else
         {
             onHit?.Invoke();
-            _stateMachine.ChangeState<DashShooterEnemyHit>();
-        }
-    }
-
-    public void Attack()
-    {
-        StartCoroutine(DashRotine());
-    }
-
-    private IEnumerator DashRotine()
-    {
-        Vector2 dir = (target.position - transform.position).normalized;
-        moveDir = dir;
-
-        float currentTimem = 0;
-        while (true)
-        {
-            currentTimem += Time.deltaTime;
-            if (currentTimem > _dashTime)
-                break;
-
-            yield return null;
+            //_stateMachine.ChangeState<BulletEnemyHit>();
         }
 
-        speed = 0;
-        moveDir = Vector2.zero;
-        yield return new WaitForSeconds(0.5f);
-        StartCoroutine(ShootRotine());
-    }
-
-    private IEnumerator ShootRotine()
-    {
-        isFaceDirection?.Invoke(target.position);
-
-        int shootCnt = 3;
-        Quaternion quaternion = Quaternion.FromToRotation(Vector2.right, target.position - transform.position);
-        while (shootCnt > 0)
-        {
-            GameObject bullet = Instantiate(bulletPrefab, transform.position, quaternion);
-            Destroy(bullet, 1.5f);
-            onAttack?.Invoke();
-
-            yield return new WaitForSeconds(0.3f);
-            shootCnt--;
-        }
-
-        _stateMachine.ChangeState<DashShooterEnemyWait>();
     }
 
     private void CalculateKnockback()
@@ -169,7 +119,7 @@ public class DashShooterEnemy : MonoBehaviour, IDamageable
         moveDir = Vector2.zero;
         speed = 0;
 
-        _stateMachine.ChangeState<DashShooterEnemyWait>();
+        //_stateMachine.ChangeState<BulletEnemyMovement>();
     }
 
     public void KnockBack(Vector2 direction, float time) // 넉백
@@ -188,7 +138,7 @@ public class DashShooterEnemy : MonoBehaviour, IDamageable
         if (_lastAttackTime + _collTime > Time.time) return;
 
         Vector2 dir = target.position - transform.position;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, dir.normalized, _range, _player);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, dir.normalized, enemyData.attackDistance, _player);
 
         if (hit.collider != null)
         {

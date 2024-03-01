@@ -64,8 +64,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.020492606, y: -0.41001564}
-  m_Size: {x: 0.71500146, y: 0.1799698}
+  m_Offset: {x: 0.0075816032, y: -0.41001564}
+  m_Size: {x: 0.5577863, y: 0.1799698}
   m_Direction: 1
 --- !u!1 &4307797928149262821
 GameObject:
@@ -162,7 +162,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.025826693, y: 0.002799511}
+  m_Offset: {x: 0.000000014901161, y: -0.03139943}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -173,7 +173,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7047715, y: 1.0143435}
+  m_Size: {x: 0.51637495, y: 0.95154464}
   m_EdgeRadius: 0
 --- !u!114 &8443558499001052940
 MonoBehaviour:
@@ -241,7 +241,7 @@ MonoBehaviour:
   enemyData: {fileID: 11400000, guid: eb534738dd2a663409bf66bcaa544e6d, type: 2}
   bulletPrefab: {fileID: 4780394313312405551, guid: 27c5fc88a5173d7459a9f6bf165fc545, type: 3}
   speed: 0
-  moveChangeTime: 1.5
+  moveChangeTime: 1.7
   currentMoveTime: 0
   attackCoolTime: 2.5
   currentAttackTime: 0
@@ -328,7 +328,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 5085344238901809610, guid: 40b58b319ded876409ce4b3cd7ddb9d3, type: 3}
+  m_Sprite: {fileID: -7231734236842055964, guid: aae5977d1af33b54d99e49711753c497, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

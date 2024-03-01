@@ -16,17 +16,19 @@ public class PlayerWeapon : MonoBehaviour
     private Vector2 _targetDir;
     private Vector2 _targetPos;
 
+    private PlayerHealth _playerHealth;
     private IDamageable _iDamageable;
     private Weapon _currentWeapon;
 
     private void Awake()
     {
+        _playerHealth = GetComponentInParent<PlayerHealth>();
         _currentWeapon = transform.Find("Knife").GetComponent<Weapon>();
     }
 
     private void Update()
     {
-        if (!_currentWeapon.isAttacking)
+        if (!_currentWeapon.isAttacking && !_playerHealth.IsDead)
             TargetCheck();
     }
 

@@ -1,46 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
-public class BulletEnemy : MonoBehaviour, IDamageable
+public class SpawnEnemy : MonoBehaviour, IDamageable
 {
     public UnityEvent<Vector2> isFaceDirection = null;
-    public UnityEvent<float> onSpeedChanged = null;
-    public UnityEvent onAttack = null;
+    public UnityEvent onSpawnEnemy = null;
     public UnityEvent onHit = null;
     public UnityEvent onDead = null;
 
     public EnemyDataSO enemyData;
-    public GameObject bulletPrefab;
 
     public float speed;
-    private int _damage = 1;
-    private float _range = 0.5f; // 공격 사거리
+    private int _damage = 3;
     private float _collTime = 0.5f;
     private float _lastAttackTime;
-
     private int currentHp;
     public int CurrentHp => currentHp;
 
-    // Movement 관련
-    public float moveChangeTime = 0.5f;
-    public float currentMoveTime = 0;
-
-    // Attack 관련
-    public float attackCoolTime = 3f;
-    public float currentAttackTime = 0;
-
     public bool IsAlive { get; private set; }
 
-    public Vector2 moveDir = Vector2.zero;
+    public Vector2 moveDir;
     public LayerMask _player;
     public Transform target;
     public Rigidbody2D rigid;
     public PlayerHealth playerHealth;
 
-    private StateMachine<BulletEnemy> _stateMachine;
+    private StateMachine<SpawnEnemy> _stateMachine;
+
+    // Spawn 관련
+    [SerializeField] private GameObject _childEnemy;
+    private float _spawnCoolTime = 3f;
+    private float _currentSpawnTime = 0;
 
     #region 넉백
     private bool _isKnockBack = false;
@@ -57,18 +50,21 @@ public class BulletEnemy : MonoBehaviour, IDamageable
 
     private void Start()
     {
-        _stateMachine = new StateMachine<BulletEnemy>(this, new BulletEnemyMovement());
-        _stateMachine.AddStateList(new BulletEnemyHit());
+        _stateMachine = new StateMachine<SpawnEnemy>(this, new SpawnEnemyIdle());
+        _stateMachine.AddStateList(new SpawnEnemyHit());
 
         IsAlive = true;
         currentHp = enemyData.maxHP;
-        speed = enemyData.maxSpeed;
+        target = playerHealth.transform;
     }
-
     private void FixedUpdate()
     {
-        if (_isKnockBack && IsAlive)
-            CalculateKnockback(); // 넉백중일때는 넉백상태 계산
+        if (IsAlive)
+        {
+            PlayerCheck();
+            if (_isKnockBack)
+                CalculateKnockback(); // 넉백중일때는 넉백상태 계산
+        }
     }
 
     private void Update()
@@ -76,26 +72,23 @@ public class BulletEnemy : MonoBehaviour, IDamageable
         if (IsAlive)
         {
             _stateMachine.DoUpdate();
-
-            rigid.velocity = moveDir * speed;
-
-            onSpeedChanged?.Invoke(speed);
-            ShootAttack(); // 공격
+            Spawn();
         }
     }
 
-    private void ShootAttack()
+    private void Spawn()
     {
-        currentAttackTime += Time.deltaTime;
-        if (currentAttackTime > attackCoolTime)
+        if (!_isKnockBack)
         {
-            Quaternion quaternion = Quaternion.FromToRotation(Vector2.right, target.position - transform.position);
-            GameObject bullet = Instantiate(bulletPrefab, transform.position, quaternion);
-            Destroy(bullet, 1);
+            _currentSpawnTime += Time.deltaTime;
+            if (_currentSpawnTime > _spawnCoolTime)
+            {
+                Instantiate(_childEnemy, transform.position, Quaternion.identity);
+                onSpawnEnemy?.Invoke();
+                // 생성 파티클 & 소리
 
-            onAttack?.Invoke();
-
-            currentAttackTime = 0;
+                _currentSpawnTime = 0;
+            }
         }
     }
 
@@ -113,7 +106,7 @@ public class BulletEnemy : MonoBehaviour, IDamageable
         else
         {
             onHit?.Invoke();
-            _stateMachine.ChangeState<BulletEnemyHit>();
+            _stateMachine.ChangeState<SpawnEnemyHit>();
         }
 
     }
@@ -140,7 +133,7 @@ public class BulletEnemy : MonoBehaviour, IDamageable
         moveDir = Vector2.zero;
         speed = 0;
 
-        _stateMachine.ChangeState<BulletEnemyMovement>();
+        _stateMachine.ChangeState<SpawnEnemyIdle>();
     }
 
     public void KnockBack(Vector2 direction, float time) // 넉백
@@ -159,7 +152,7 @@ public class BulletEnemy : MonoBehaviour, IDamageable
         if (_lastAttackTime + _collTime > Time.time) return;
 
         Vector2 dir = target.position - transform.position;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, dir.normalized, _range, _player);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, dir.normalized, enemyData.attackDistance, _player);
 
         if (hit.collider != null)
         {

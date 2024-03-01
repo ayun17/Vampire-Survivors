@@ -24,6 +24,7 @@ public class PlayerHealth : MonoBehaviour
     public void OnDamage(int damage)
     {
         _currentHp -= damage;
+        Debug.Log("플레이어 아파");
 
         if (_currentHp <= 0)
         {
